@@ -84,6 +84,11 @@ class mod_geogebra_mod_form extends moodleform_mod {
         $mform->addHelpButton('geogebrafile', 'urledit', 'geogebra');
         $mform->disabledIf('geogebrafile', 'filetype', 'noteq', GEOGEBRA_FILE_TYPE_LOCAL);
 
+        $mform->addElement('text', 'urlggb', get_string('urlggb', 'geogebra'), array('size' => '60'));
+        $mform->setType('urlggb', PARAM_RAW);
+        $mform->setDefault('urlggb', '//www.geogebratube.org/scripts/deployggb.js');
+        $mform->addHelpButton('urlggb', 'urlggb', 'geogebra');
+
         $options = get_string_manager()->get_list_of_translations();
         $mform->addElement('select', 'language', get_string('language', 'geogebra'), $options);
 

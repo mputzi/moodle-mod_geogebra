@@ -310,7 +310,11 @@ function geogebra_print_content($geogebra, $context) {
     }
 
     echo '<script type="text/javascript" src="//unpkg.com/fflate"></script>';
-    echo '<script type="text/javascript" src="//www.geogebra.org/apps/deployggb.js"></script>';
+
+    // Geogebra URL is at
+    $deployggburl = $geogebra->urlggb;
+    echo '<script type="text/javascript" src="' . $deployggburl . '"></script>';
+
     echo '<script>window.onload = function() {
         var applet = new GGBApplet({';
     foreach ($attribnames as $name) {
